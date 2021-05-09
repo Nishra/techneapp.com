@@ -9,7 +9,7 @@ import { Employee } from '../models/Employee';
   providedIn: 'root'
 })
 export class EmployeeService {
-  private employeePath = environment.apiUrl + 'employee';
+  private employeePath = environment.apiUrl + 'Employees';
   constructor(private http: HttpClient) {}
 
   create(data): Observable<Employee> {
@@ -22,6 +22,10 @@ export class EmployeeService {
 
   getEmployee(id): Observable<Employee> {
     return this.http.get<Employee>(this.employeePath + '/'+ id);
+  }
+
+  getEmployeeDepartment(id): Observable<string> {
+    return this.http.get<string>(this.employeePath + '/'+ id + '/'+ 'getEmployeeDepartment');
   }
 
   deleteEmployee(id){

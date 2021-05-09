@@ -23,6 +23,8 @@ export class EditEmployeeComponent implements OnInit {
       'id':[''],
       'employeeName': [''],
       'email': [''],
+      'imageURL':[''],
+      'department':['']
     })
   }
 
@@ -34,14 +36,19 @@ export class EditEmployeeComponent implements OnInit {
         this.employeeEditForm = this.fb.group({
           'id':[this.employee.id],
           'employeeName': [this.employee.employeeName],
-          'email': [this.employee.employeeName],
+          'email': [this.employee.email],
+          'imageURL':[this.employee.imageURL],
+          'department':[this.employee.department]
         });
       });
+      console.log(this.employeeEditForm);
     });
   }
 
   editEmployee() {
     this.employeeService.editEmployee(this.employeeEditForm.value).subscribe(res=>{
+      console.log("Edit",this.employeeEditForm.value)
+      console.log("res",res)
       this.router.navigate(["employees"])
     })
   }

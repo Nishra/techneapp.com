@@ -13,11 +13,17 @@ import { CreateEmployeeComponent } from './create-employee/create-employee.compo
 import { EmployeeService } from './services/employee.service';
 import { GetEmployeeComponent } from './get-employee/get-employee.component';
 import { EditEmployeeComponent } from './edit-employee/edit-employee.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { ListDepartmentsComponent } from './list-departments/list-departments.component';
+import { DepartmentService } from './services/department.service';
+import { CreateDepartmentsComponent } from './create-departments/create-departments.component';
+import { GetDepartmentsComponent } from './get-departments/get-departments.component';
+import { EditDepartmentsComponent } from './edit-departments/edit-departments.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, RegisterComponent, ListEmployeeComponent, CreateEmployeeComponent, GetEmployeeComponent, EditEmployeeComponent],
+  declarations: [AppComponent, LoginComponent, RegisterComponent, ListEmployeeComponent, CreateEmployeeComponent, GetEmployeeComponent, EditEmployeeComponent, DashboardComponent, ListDepartmentsComponent, CreateDepartmentsComponent, GetDepartmentsComponent, EditDepartmentsComponent],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule,HttpClientModule],
-  providers: [AuthService, EmployeeService],
+  providers: [AuthService, EmployeeService, DepartmentService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -20,10 +20,14 @@ export class GetEmployeeComponent implements OnInit {
       this.employeeService.getEmployee(this.id).subscribe((res) => {
         this.employee = res;
       });
+      this.employeeService.getEmployeeDepartment(this.id).subscribe((result) => {
+        this.employee.department = result['departmentName'];
+      });
+      
     });
   }
 
   ngOnInit(): void {
-    console.log('Helloo');
+    console.log('test');
   }
 }
