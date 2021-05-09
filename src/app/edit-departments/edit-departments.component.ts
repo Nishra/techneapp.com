@@ -36,14 +36,11 @@ export class EditDepartmentsComponent implements OnInit {
           'departmentName': [this.department.departmentName]
         });
       });
-      console.log(this.departmentEditForm);
     });
   }
 
   editDepartment() {
     this.departmentService.editDepartment(this.departmentEditForm.value).subscribe(res=>{
-      console.log("Edit",this.departmentEditForm.value)
-      console.log("res",res)
       this.router.navigate(["departments"])
     })
   }

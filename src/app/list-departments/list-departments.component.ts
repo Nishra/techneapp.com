@@ -24,9 +24,9 @@ export class ListDepartmentsComponent implements OnInit {
   }
 
   deleteDepartment(id) {
-    console.log('Delete');
     this.departmentService.deleteDepartment(id).subscribe((res) => {
       this.fetchDepartment();
+      this.router.navigate(["departments"])
     });
   }
 

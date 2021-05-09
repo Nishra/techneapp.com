@@ -41,14 +41,11 @@ export class EditEmployeeComponent implements OnInit {
           'department':[this.employee.department]
         });
       });
-      console.log(this.employeeEditForm);
     });
   }
 
   editEmployee() {
     this.employeeService.editEmployee(this.employeeEditForm.value).subscribe(res=>{
-      console.log("Edit",this.employeeEditForm.value)
-      console.log("res",res)
       this.router.navigate(["employees"])
     })
   }

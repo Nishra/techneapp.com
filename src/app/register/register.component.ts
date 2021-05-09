@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { AuthService } from '../services/auth.service';
 })
 export class RegisterComponent implements OnInit {
   registerForm : FormGroup;
-  constructor(private fb: FormBuilder, private authService : AuthService) { 
+  constructor(private router : Router, private fb: FormBuilder, private authService : AuthService) { 
     this.registerForm = this.fb.group({
       'username':[''],
       'email':[''],
@@ -22,7 +23,7 @@ export class RegisterComponent implements OnInit {
 
   register(){
     this.authService.login(this.registerForm.value).subscribe(data=>{
-      console.log(data)
+      this.router.navigate(["login"])
     })
   }
 }

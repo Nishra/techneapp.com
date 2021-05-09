@@ -21,4 +21,12 @@ export class DashboardComponent implements OnInit {
     this.router.navigate(["employees"])
   }
 
+  createEmployee(){
+    this.router.navigate(["createEmployee"])
+  }
+
+  createDepartment(){
+    this.router.navigate(["createDepartment"])
+  }
+
 }

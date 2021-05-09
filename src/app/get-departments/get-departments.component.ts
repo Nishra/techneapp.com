@@ -26,7 +26,6 @@ export class GetDepartmentsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log('test');
   }
 
 }

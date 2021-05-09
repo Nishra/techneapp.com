@@ -7,6 +7,15 @@
       </div>
       <form [formGroup]="employeeRegisterForm" (ngSubmit)="createEmployee()">
         <div class="form-group">
+          <label for="exampleInputName">Employee ID</label>
+          <input
+            type="number"
+            class="form-control"
+            placeholder="Employee ID"
+            formControlName="employeeID"
+          />
+        </div>
+        <div class="form-group">
           <label for="exampleInputName">Employee Name</label>
           <input
             type="text"
@@ -25,23 +34,19 @@
           />
         </div>
         <div class="form-group">
-            <label for="exampleInputDepartment">Department</label>
-          <div class="dropdown">
-            <button
-              class="btn btn-main dropdown-toggle"
-              type="button"
-              id="dropdownMenuButton"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              Select a Department
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </div>
+          <label for="exampleInputDepartment">Department</label>
+          <div>
+            <select onchange="selectDepartment($event)" class="btn btn-main">
+              <option
+                *ngFor="let dep of departments"
+                class="dropdown-item"
+                href="#"
+                [value]="dep.id"
+                formControlName="department"
+              >
+                {{ dep.departmentName }}
+              </option>
+            </select>
           </div>
         </div>
         <div class="form-group">
@@ -52,7 +57,7 @@
               class="form-control"
               placeholder="Username"
               formControlName="imageURL"
-              (change) = "onSelectImage($event)"
+              (change)="onSelectImage($event)"
               accept=".png,.jpg,.jpeg"
             />
           </div>
